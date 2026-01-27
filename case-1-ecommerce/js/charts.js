@@ -40,10 +40,10 @@ const ChartsModule = {
         Chart.defaults.font.size = this.config.fontSize;
         Chart.defaults.color = this.config.colors.textSecondary;
         Chart.defaults.responsive = true;
-        Chart.defaults.maintainAspectRatio = true;
+        Chart.defaults.maintainAspectRatio = false;
         Chart.defaults.plugins.legend.position = 'bottom';
         Chart.defaults.plugins.legend.labels.usePointStyle = true;
-        Chart.defaults.plugins.legend.labels.padding = 20;
+        Chart.defaults.plugins.legend.labels.padding = 15;
     },
 
     createSalesChart() {
