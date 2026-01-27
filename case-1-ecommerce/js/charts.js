@@ -139,7 +139,7 @@ const ChartsModule = {
         this.instances.speed = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['ПОСЛЕ (30 сек)', 'ДО (30 мин)', 'Экономия'],
+                labels: ['ПОСЛЕ (до 30 сек)', 'ДО (30 мин)', 'Экономия'],
                 datasets: [{
                     data: [0.5, 30, 30],
                     backgroundColor: [
