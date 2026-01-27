@@ -30,6 +30,8 @@ const App = {
         }
     },
 
+    chatHistory: [],
+
     initChat() {
         const chatInput = document.getElementById('chat-input');
         const sendButton = document.getElementById('send-btn');
@@ -38,7 +40,7 @@ const App = {
         
         if (!chatInput || !sendButton || !chatMessages) return;
 
-        const sendMessage = () => {
+        const sendMessage = async () => {
             const message = chatInput.value.trim();
             if (!message) return;
             
@@ -46,37 +48,66 @@ const App = {
             chatInput.value = '';
             this.showTypingIndicator();
             
-            const delay = this.generateRandomDelay();
             const startTime = Date.now();
             
-            setTimeout(() => {
+            try {
+                const response = await this.callAI(message);
                 this.hideTypingIndicator();
                 const responseTime = ((Date.now() - startTime) / 1000).toFixed(1);
-                const answer = this.findAnswer(message);
-                this.addChatMessage(answer, 'bot', responseTime);
-            }, delay);
+                this.addChatMessage(response, 'bot', responseTime);
+            } catch (error) {
+                this.hideTypingIndicator();
+                const fallbackAnswer = this.findAnswer(message);
+                const responseTime = ((Date.now() - startTime) / 1000).toFixed(1);
+                this.addChatMessage(fallbackAnswer, 'bot', responseTime);
+            }
         };
 
         sendButton.addEventListener('click', sendMessage);
         chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
     },
 
+    async callAI(message) {
+        this.chatHistory.push({ role: 'user', content: message });
+        
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                message, 
+                history: this.chatHistory.slice(-10) 
+            })
+        });
+        
+        if (!response.ok) throw new Error('API error');
+        
+        const data = await response.json();
+        this.chatHistory.push({ role: 'assistant', content: data.reply });
+        
+        return data.reply;
+    },
+
     initQuickQuestions() {
         const quickButtons = document.querySelectorAll('.quick-question-btn');
         quickButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', async () => {
                 const question = btn.dataset.question;
                 if (!question) return;
                 this.addChatMessage(question, 'user');
                 this.showTypingIndicator();
-                const delay = this.generateRandomDelay();
                 const startTime = Date.now();
-                setTimeout(() => {
+                
+                try {
+                    const response = await this.callAI(question);
                     this.hideTypingIndicator();
                     const responseTime = ((Date.now() - startTime) / 1000).toFixed(1);
-                    const answer = this.findAnswer(question);
-                    this.addChatMessage(answer, 'bot', responseTime);
-                }, delay);
+                    this.addChatMessage(response, 'bot', responseTime);
+                } catch (error) {
+                    this.hideTypingIndicator();
+                    const fallbackAnswer = this.findAnswer(question);
+                    const responseTime = ((Date.now() - startTime) / 1000).toFixed(1);
+                    this.addChatMessage(fallbackAnswer, 'bot', responseTime);
+                }
             });
         });
     },
