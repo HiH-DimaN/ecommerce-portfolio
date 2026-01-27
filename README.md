@@ -23,11 +23,13 @@ AI-автоматизация продаж для интернет-магази�
 - HTML5, CSS3, JavaScript (ES6+)
 - Chart.js — визуализация KPI
 
-**AI-решение (описание кейса):**
-- Python, FastAPI
-- OpenAI GPT / YandexGPT
-- Telegram Bot API
-- Wildberries API
+**Backend (AI Chat):**
+- Vercel Serverless Functions
+- OpenAI GPT-4o-mini
+
+**Инфраструктура:**
+- Vercel — хостинг и serverless
+- GitHub — версионирование
 
 ## Структура проекта
 
@@ -35,9 +37,12 @@ AI-автоматизация продаж для интернет-магази�
 case-1-ecommerce/
 ├── index.html          # Главная страница
 ├── telegram-app.html   # Демо Telegram Mini App
+├── api/
+│   └── chat.js         # Vercel Serverless API (OpenAI)
 ├── css/                # Стили и анимации
 ├── js/                 # Логика и графики
 ├── data/               # Демо-данные
+├── README.md           # Документация проекта
 └── PRD.md              # Product Requirements Document
 ```
 
@@ -46,10 +51,13 @@ case-1-ecommerce/
 ```bash
 git clone https://github.com/HiH-DimaN/ecommerce-portfolio.git
 cd ecommerce-portfolio/case-1-ecommerce
-python3 -m http.server 8080
+npm install
+npx vercel dev
 ```
 
-Открыть: http://localhost:8080
+Открыть: http://localhost:3000
+
+> Для работы AI-чата создайте `.env.local` с `OPENAI_API_KEY=your_key`
 
 ## Документация
 
