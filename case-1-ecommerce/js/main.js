@@ -262,11 +262,12 @@ const App = {
         const columns = document.querySelectorAll('.column');
         if (!buttons.length) return;
         
-        const activate = (name) => {
-            buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+        const activate = (tabName) => {
+            buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === tabName));
+            const sectionName = tabName.replace('section-', '');
             columns.forEach(c => {
                 if (window.innerWidth < 1024) {
-                    c.style.display = c.dataset.section === name ? 'block' : 'none';
+                    c.style.display = c.dataset.section === sectionName ? 'block' : 'none';
                 } else {
                     c.style.display = 'block';
                 }
@@ -275,7 +276,6 @@ const App = {
         
         buttons.forEach(b => b.onclick = () => activate(b.dataset.tab));
         
-        // Initialize on load - show first active tab on mobile
         if (window.innerWidth < 1024) {
             const activeButton = document.querySelector('.tab-button.active');
             if (activeButton) {
