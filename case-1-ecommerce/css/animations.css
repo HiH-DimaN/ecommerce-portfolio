@@ -1,0 +1,580 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleDown {
+    from {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(26, 115, 232, 0.8), 0 0 30px rgba(26, 115, 232, 0.4);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes progressBar {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--progress-width, 100%);
+    }
+}
+
+@keyframes drawLine {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.fade-in-fast {
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.fade-in-slow {
+    animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+.slide-in-up {
+    animation: slideInUp 0.8s ease-out forwards;
+}
+
+.slide-in-down {
+    animation: slideInDown 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+}
+
+.scale-up {
+    animation: scaleUp 0.5s ease-out forwards;
+}
+
+.scale-down {
+    animation: scaleDown 0.5s ease-out forwards;
+}
+
+.bounce-in {
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+.rotate {
+    animation: rotate 1s linear infinite;
+}
+
+.count-up {
+    animation: countUp 0.5s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-900 { animation-delay: 0.9s; }
+.delay-1000 { animation-delay: 1s; }
+
+.duration-fast { animation-duration: 0.3s; }
+.duration-normal { animation-duration: 0.5s; }
+.duration-slow { animation-duration: 0.8s; }
+.duration-slower { animation-duration: 1.2s; }
+
+.ease-linear { animation-timing-function: linear; }
+.ease-in { animation-timing-function: ease-in; }
+.ease-out { animation-timing-function: ease-out; }
+.ease-in-out { animation-timing-function: ease-in-out; }
+.ease-bounce { animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+
+.animate-once { animation-iteration-count: 1; }
+.animate-twice { animation-iteration-count: 2; }
+.animate-infinite { animation-iteration-count: infinite; }
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.metric-card {
+    opacity: 0;
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+.column-before .metric-card:nth-child(1) { animation-delay: 0.2s; }
+.column-before .metric-card:nth-child(2) { animation-delay: 0.5s; }
+.column-before .metric-card:nth-child(3) { animation-delay: 0.8s; }
+.column-before .metric-card:nth-child(4) { animation-delay: 1.1s; }
+
+.column-after .metric-card:nth-child(1) { animation-delay: 1.5s; }
+.column-after .metric-card:nth-child(2) { animation-delay: 1.8s; }
+.column-after .metric-card:nth-child(3) { animation-delay: 2.1s; }
+.column-after .metric-card:nth-child(4) { animation-delay: 2.4s; }
+
+.kpi-card {
+    opacity: 0;
+    animation: scaleUp 0.6s ease-out forwards;
+}
+
+.kpi-card:nth-child(1) { animation-delay: 0.2s; }
+.kpi-card:nth-child(2) { animation-delay: 0.4s; }
+.kpi-card:nth-child(3) { animation-delay: 0.6s; }
+.kpi-card:nth-child(4) { animation-delay: 0.8s; }
+.kpi-card:nth-child(5) { animation-delay: 1.0s; }
+
+.kpi-value {
+    display: inline-block;
+}
+
+.kpi-value.counting {
+    animation: countUp 0.3s ease-out;
+}
+
+.chart-card {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.chart-card:nth-child(1) { animation-delay: 0.2s; }
+.chart-card:nth-child(2) { animation-delay: 0.4s; }
+.chart-card:nth-child(3) { animation-delay: 0.6s; }
+
+.chart-card:hover {
+    animation: scaleUp 0.3s ease-out forwards;
+    transform: scale(1.02);
+}
+
+.financial-card {
+    opacity: 0;
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+.financial-card:nth-child(1) { animation-delay: 0.1s; }
+.financial-card:nth-child(2) { animation-delay: 0.2s; }
+.financial-card:nth-child(3) { animation-delay: 0.3s; }
+.financial-card:nth-child(4) { animation-delay: 0.4s; }
+.financial-card:nth-child(5) { animation-delay: 0.5s; }
+
+.financial-value.highlight {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.financial-arrow {
+    animation: float 2s ease-in-out infinite;
+}
+
+.timeline-item {
+    opacity: 0;
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+.timeline-marker {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-marker {
+    animation: pulse 0.5s ease-in-out;
+}
+
+.component-card {
+    opacity: 0;
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.component-card:nth-child(1) { animation-delay: 0.1s; }
+.component-card:nth-child(2) { animation-delay: 0.2s; }
+.component-card:nth-child(3) { animation-delay: 0.3s; }
+
+.component-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.component-card:hover .component-icon {
+    animation: bounceIn 0.5s ease;
+}
+
+.comparison-table tbody tr {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.comparison-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.comparison-table tbody tr:nth-child(2) { animation-delay: 0.15s; }
+.comparison-table tbody tr:nth-child(3) { animation-delay: 0.2s; }
+.comparison-table tbody tr:nth-child(4) { animation-delay: 0.25s; }
+.comparison-table tbody tr:nth-child(5) { animation-delay: 0.3s; }
+
+.chat-message {
+    animation: slideInUp 0.3s ease-out;
+}
+
+.chat-message.user-message {
+    animation: slideInRight 0.3s ease-out;
+}
+
+.chat-message.bot-message {
+    animation: slideInLeft 0.3s ease-out;
+}
+
+.typing-indicator span {
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+.typing-indicator span:nth-child(1) { animation-delay: 0s; }
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+.success-highlight {
+    opacity: 0;
+    animation: bounceIn 0.8s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.header {
+    animation: slideInDown 0.5s ease-out;
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+.send-button:hover svg {
+    animation: slideInRight 0.3s ease;
+}
+
+.status-indicator {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.status-red {
+    animation: pulse 2s ease-in-out infinite;
+    --pulse-color: rgba(234, 67, 53, 0.4);
+}
+
+.status-green {
+    animation: pulse 2s ease-in-out infinite;
+    --pulse-color: rgba(52, 168, 83, 0.4);
+}
+
+.status-blue {
+    animation: pulse 2s ease-in-out infinite;
+    --pulse-color: rgba(26, 115, 232, 0.4);
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+.skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+}
+
+.skeleton-title {
+    height: 1.5em;
+    width: 60%;
+    margin-bottom: 1em;
+}
+
+.skeleton-card {
+    height: 100px;
+    margin-bottom: 1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+    }
+
+    .metric-card,
+    .kpi-card,
+    .chart-card,
+    .financial-card,
+    .timeline-item,
+    .component-card,
+    .comparison-table tbody tr,
+    .success-highlight {
+        opacity: 1;
+        animation: none;
+    }
+}
