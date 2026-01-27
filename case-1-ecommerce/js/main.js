@@ -261,15 +261,38 @@ const App = {
         const buttons = document.querySelectorAll('.tab-button');
         const columns = document.querySelectorAll('.column');
         if (!buttons.length) return;
+        
         const activate = (name) => {
             buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
             columns.forEach(c => {
-                if (c.dataset.section === name) { c.style.display = 'block'; }
-                else if (window.innerWidth < 1024) { c.style.display = 'none'; }
+                if (window.innerWidth < 1024) {
+                    c.style.display = c.dataset.section === name ? 'block' : 'none';
+                } else {
+                    c.style.display = 'block';
+                }
             });
         };
+        
         buttons.forEach(b => b.onclick = () => activate(b.dataset.tab));
-        window.onresize = () => { if (window.innerWidth >= 1024) columns.forEach(c => c.style.display = 'block'); };
+        
+        // Initialize on load - show first active tab on mobile
+        if (window.innerWidth < 1024) {
+            const activeButton = document.querySelector('.tab-button.active');
+            if (activeButton) {
+                activate(activeButton.dataset.tab);
+            }
+        }
+        
+        window.onresize = () => {
+            if (window.innerWidth >= 1024) {
+                columns.forEach(c => c.style.display = 'block');
+            } else {
+                const activeButton = document.querySelector('.tab-button.active');
+                if (activeButton) {
+                    activate(activeButton.dataset.tab);
+                }
+            }
+        };
     },
 
     initTableInteraction() {
@@ -286,7 +309,7 @@ const App = {
 
     initScrollAnimations() {
         const obs = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (entry.isIntersecting) e.target.classList.add('is-visible'); });
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
         });
         document.querySelectorAll('.animate-on-scroll').forEach(el => obs.observe(el));
     }
