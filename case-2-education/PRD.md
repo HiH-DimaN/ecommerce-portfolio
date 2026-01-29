@@ -561,14 +561,14 @@ Student 1:N Notification
 
 ---
 
-## Appendix A: Wireframes
-
-*См. отдельный файл WIREFRAMES.md*
-
-## Appendix B: API Schema
+## Appendix A: API Schema
 
 *См. файл ARCHITECTURE.md, секция 3*
 
-## Appendix C: Database Schema
+## Appendix B: Database Schema
 
-*См. файл DATABASE.md*
+*См. файл ARCHITECTURE.md, секция 2*
+
+## Appendix C: Структура проекта
+
+*См. файл ARCHITECTURE.md, секция 1*

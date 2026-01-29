@@ -21,10 +21,17 @@ Local Development → GitHub Push → Coolify Auto-Deploy
 
 ### Сервисы в продакшене (Coolify)
 
+**Auto-deploy из GitHub** (наша зона ответственности):
+
 | Сервис | Образ | Порт |
 |--------|-------|------|
-| Backend (FastAPI) | `Dockerfile` | 8000 |
-| Frontend (Vue) | `Dockerfile` + nginx | 80 |
+| Backend (FastAPI) | `Dockerfile` (backend/) | 8000 |
+| Frontend (Vue) | `Dockerfile` (frontend/) | 80 |
+
+**Развернуты вручную в Coolify** (инфраструктура):
+
+| Сервис | Образ | Порт |
+|--------|-------|------|
 | PostgreSQL + pgvector | `pgvector/pgvector:pg16` | 5432 |
 | Redis | `redis:7-alpine` | 6379 |
 | Directus | `directus/directus:11` | 8055 |
